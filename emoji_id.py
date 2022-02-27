@@ -9,6 +9,7 @@ import credentials
 import json
 import requests
 
+# Can't get this working. Tried passing several different headers with x-api-key, access_token, and refresh_token
 def owned_list(base_url, account):
     headers = credentials.create_xapi_head(account) # Make header that will be passed later
     print("headers sent")
