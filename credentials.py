@@ -49,7 +49,8 @@ def new_account(base_url, new_name):
         avaliable_accounts[new_name] ={
             'order': new_order,
             'email': new_email,
-            'api_key': responce
+            'api_key': responce,
+            'Authorization': bear_token
         }
 
         print("New account added")
@@ -103,7 +104,7 @@ def login(base_url, account):
     password = getpass.getpass(prompt=": ", stream=None)
 
     credentials = {
-        'email': email,
+        'email': user_email,
         'password': password
     }
     json_credentials = json.dumps(credentials, skipkeys=True, separators=(',', ':')) # I don't know why but it doesn't work unless all the spaces are stripped out
@@ -145,6 +146,20 @@ def create_yapi_head(account):
         'refresh_token': refresh_token
     }
     return(headers)
+
+# Maybe I need to send the 'Access_Token' in the header as well.
+# This is the same authorizatiohn header used in new_account.
+def create_zapi_head(account):
+    api_key = str(account['api_key'])
+    bear_token = str(account['Authorization'])
+
+    headers = {
+        'Content-Type': 'application/json',
+        'X-Api-Key': api_key,
+        'Authorization': bear_token
+    }
+    return(headers)
+
 
 # This asks for a new refresh ID. Then goes to submit_2fa with that new ID
 # submit_2fa will allow user to enter a new key and 'refresh' the auth token

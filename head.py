@@ -37,10 +37,27 @@ print("Type 'help' for a list of commands.")
 
 
 def logged_in_menu(account): # Currently a dead end. Can't get past error.
-    print("list yats : list owned yats")
-    user_input = input(": ")
-    if user_input == 'list yats':
-        emoji_id.owned_list(base_url, account)
+    print("help       : print this message")
+    print("list yats  : list owned yats")
+    print("yat lookup : lookup the info of a yat")
+    print("char       : valid emoji characters")
+    print("set        : set Monero address")
+    while True:
+        user_input = input(": ")
+        if user_input == 'help': # Should fix so only have to change one help file
+            print("help       : print this message")
+            print("list yats  : list owned yats")
+            print("yat lookup : lookup the info of a yat")
+            print("char       : valid emoji characters")
+            print("set        : set Monero address")
+        elif user_input == 'list yats':
+            emoji_id.owned_list(base_url, account)
+        elif user_input == 'yat lookup':
+            emoji_id.lookup(base_url)
+        elif user_input == 'char':
+            emoji_id.emoji_characters(base_url, account)
+        elif user_input == 'set':
+            emoji_id.store(base_url, account)
 
 while True:
    user_input = input(": ")
