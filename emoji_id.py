@@ -18,6 +18,8 @@ def store(base_url, account):
     stored_data = input(": ")
     print("Enter tag (https://api-docs.y.at/docs/categories) of data:")
     tag_data = input(": ")
+    print("Enter key (https://api-docs.y.at/docs/api-ref#store-value-under-emojiid-key_)")
+    key = input(": ")
     dictData = {
         'data': None,
         'linked_tags': [
@@ -27,7 +29,7 @@ def store(base_url, account):
             }
         ]
     }
-    responce = requests.post(base_url + '/emoji_id/'+yat+"YatPageData", json=dictData, headers=headers)
+    responce = requests.post(base_url + '/emoji_id/'+yat+key, json=dictData, headers=headers)
     print("responce is: ")
     print(responce)
     print(responce.text)

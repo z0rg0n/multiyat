@@ -98,13 +98,13 @@ def login(base_url, account):
     email = account['email']
     if email is None:
         print("Enter account email:")
-        user_email = input(": ")
+        email = input(": ")
     
     print("Enter account password:")
     password = getpass.getpass(prompt=": ", stream=None)
 
     credentials = {
-        'email': user_email,
+        'email': email,
         'password': password
     }
     json_credentials = json.dumps(credentials, skipkeys=True, separators=(',', ':')) # I don't know why but it doesn't work unless all the spaces are stripped out
