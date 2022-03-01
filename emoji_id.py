@@ -11,25 +11,26 @@ import requests
 import pprint
 
 def store(base_url, account):
-    headers = credentials.create_zapi_head(account) # Make header that will be passed later
+    headers = credentials.create_xapi_head(account) # Make header that will be passed later
     print("Enter yat to edit:")
-    yat = input(": ")
+    yat = input(": ")#Try 🤘🐺🤘
     print("Enter data to be stored:")
-    stored_data = input(": ")
+    address = input(": ") #try 48bPRVkgvHwjG2VUTkPLaGazynZ6RxETuNGsYZNBrtb7ZkAUqY1NE2iGqoLd8EFsvhbDGW8gNb96Jce8fg2aiY8A5mbd8zf
     print("Enter tag (https://api-docs.y.at/docs/categories) of data:")
-    tag_data = input(": ")
-    print("Enter key (https://api-docs.y.at/docs/api-ref#store-value-under-emojiid-key_)")
-    key = input(": ")
+    tag = input(": ")#xmr wallet = 0x1001
     dictData = {
-        'data': None,
-        'linked_tags': [
-            {
-                'data': stored_data,
-                'tag': tag_data
-            }
-        ]
+        'insert': {
+            'data': address,
+            'tag': tag
+        }
     }
-    responce = requests.post(base_url + '/emoji_id/'+yat+key, json=dictData, headers=headers)
+    print("URL is:")
+    print(base_url+'/emoji_id/'+yat)
+    print("sent json:")
+    print(dictData)
+    print("Sent head:")
+    print(headers)
+    responce = requests.post(base_url+'/emoji_id/'+yat, json=dictData, headers=headers)
     print("responce is: ")
     print(responce)
     print(responce.text)
@@ -60,3 +61,22 @@ def lookup(base_url):
     print("Yat info:")
     pprint.pprint(obj)
     return()
+
+def delete_hash(base_url, account):
+    headers = credentials.create_xapi_head(account) # Make header that will be passed later
+    print("Enter a yat target has is in:")
+    yat = input(": ")
+
+#    string_del = ('"delete":["cc99003dc1d247ee990267f5e7c0049971c698b1daefc31fbffa3c2f674c8a32"]')
+    print("Enter hash to delete:")
+    target = input(": ")
+    dictData = {
+        'delete': {
+            'hash': target,
+        }
+    }
+
+
+    responce = requests.post(base_url+'/emoji_id/'+yat, json=dictData, headers=headers)
+    print(responce)
+    print(responce.text)

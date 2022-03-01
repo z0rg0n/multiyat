@@ -29,9 +29,6 @@ def new_account(base_url, new_name):
         with open('accountstorage.json', 'r') as file: # Open account storage file.
             avaliable_accounts = json.load(file) # Make it a dictionary
 
-        print("Avaliable accounts object from credentials new_account:")
-        print(avaliable_accounts)
-
         #find the max value of 'order' and set new order to n+1
         # Save new order to dict
         new_order = 1 + find_max_order(avaliable_accounts)
@@ -43,13 +40,10 @@ def new_account(base_url, new_name):
         print("Would you like to save email address locally?")
         new_email = save_email()
 
-        print("avaliable_accounts in credentials.new_account()")
-        print(avaliable_accounts)
-
-        avaliable_accounts[new_name] ={
+        avaliable_accounts[new_name] = {
             'order': new_order,
             'email': new_email,
-            'api_key': responce,
+            'account_cred': responce,
             'Authorization': bear_token
         }
 
@@ -126,17 +120,17 @@ def login(base_url, account):
 # Need to be passed with 'api_key' as a key
 # Will pass header as dictonary (I think)
 def create_xapi_head(account):
-    api_key = str(account['api_key'])
+    api_key = str(account['account_cred']['api_key'])
     headers = {
         'Content-Type': 'application/json',
-        'X-API-Key': api_key
+        'X-Api-Key': api_key
     }
     return(headers)
 
 # Attempt to try other headers because I keep getting returned following from emoji_id GET:
 # {"error":"Unauthorized: Missing auth token"}
 def create_yapi_head(account):
-    api_key = str(account['api_key'])
+    api_key = str(account['account_cred']['api_key'])
     access_token = str(account['access_token'])
     refresh_token = str(account['refresh_token'])
     headers = {
@@ -150,7 +144,7 @@ def create_yapi_head(account):
 # Maybe I need to send the 'Access_Token' in the header as well.
 # This is the same authorizatiohn header used in new_account.
 def create_zapi_head(account):
-    api_key = str(account['api_key'])
+    api_key = str(account['account_cred']['api_key'])
     bear_token = str(account['Authorization'])
 
     headers = {

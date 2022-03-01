@@ -41,7 +41,8 @@ def logged_in_menu(account): # Currently a dead end. Can't get past error.
     print("list yats  : list owned yats")
     print("yat lookup : lookup the info of a yat")
     print("char       : valid emoji characters")
-    print("set        : set Monero address")
+    print("set        : set crypto address")
+    print("delete     : delete hash data")
     while True:
         user_input = input(": ")
         if user_input == 'help': # Should fix so only have to change one help file
@@ -49,7 +50,8 @@ def logged_in_menu(account): # Currently a dead end. Can't get past error.
             print("list yats  : list owned yats")
             print("yat lookup : lookup the info of a yat")
             print("char       : valid emoji characters")
-            print("set        : set Monero address")
+            print("set        : set crypto address")
+            print("delete     : delete hash data")
         elif user_input == 'list yats':
             emoji_id.owned_list(base_url, account)
         elif user_input == 'yat lookup':
@@ -58,6 +60,8 @@ def logged_in_menu(account): # Currently a dead end. Can't get past error.
             emoji_id.emoji_characters(base_url, account)
         elif user_input == 'set':
             emoji_id.store(base_url, account)
+        elif user_input == 'delete':
+            emoji_id.delete_hash(base_url, account)
 
 while True:
    user_input = input(": ")
