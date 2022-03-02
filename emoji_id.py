@@ -19,7 +19,7 @@ def store(base_url, account):
   #  print("Enter tag (https://api-docs.y.at/docs/categories) of data:")
  #   tag = input(": ")#xmr wallet = 0x1001
     dict_data ={'insert':[{'data':'48bPRVkgvHwjG2VUTkPLaGazynZ6RxETuNGsYZNBrtb7ZkAUqY1NE2iGqoLd8EFsvhbDGW8gNb96Jce8fg2aiY8A5mbd8zf','tag':'0x1001'}]}
-
+#Tried above both with [ ] and without
     print("URL is:")
     print(base_url+'/emoji_id/🤘🐺🤘')
     print("sent json_string:")
@@ -44,7 +44,8 @@ def store(base_url, account):
     print(dict_data)
     print(type(dict_data))
 
-    params = {'insert':[{'data':'48bPRVkgvHwjG2VUTkPLaGazynZ6RxETuNGsYZNBrtb7ZkAUqY1NE2iGqoLd8EFsvhbDGW8gNb96Jce8fg2aiY8A5mbd8zf','tag':'0x1001'}]}
+    params = [{'data':'48bPRVkgvHwjG2VUTkPLaGazynZ6RxETuNGsYZNBrtb7ZkAUqY1NE2iGqoLd8EFsvhbDGW8gNb96Jce8fg2aiY8A5mbd8zf','tag':'0x1001'}]
+    # Tried both with [] on outside making it a list and without
     payload = {'insert': json.dumps(params, skipkeys=True, separators=(',', ':'))}
     count = 0
     while (count < 2):
@@ -128,7 +129,8 @@ def delete_hash(base_url, account):
     print(dict_data)
     print(type(dict_data))
 
-    params = {'hash':'cc99003dc1d247ee990267f5e7c0049971c698b1daefc31fbffa3c2f674c8a32'}
+    params = [{'hash':'cc99003dc1d247ee990267f5e7c0049971c698b1daefc31fbffa3c2f674c8a32'}]
+    # tried above both with [ ] and without on outside making it a list.
     payload = {'delete': json.dumps(params, skipkeys=True, separators=(',', ':'))}
     count = 0
     while (count < 2):
