@@ -1,6 +1,6 @@
 # head.py
 """
-This will be where you call functions via a list of avaliable actions.
+This will be where you call functions via a list of available actions.
 """
 
 import accounts
@@ -11,6 +11,8 @@ base_url = 'https://a.y.at'
 
 
 def user_request (user_input):
+    print("Type 'help' for a list of commands.")
+
     if user_input == 'help':
         print("Avaliable Commands:")
         print("help      : print this list")
@@ -33,19 +35,14 @@ def user_request (user_input):
     elif user_input == 'exit':
         exit() # should also revoke all access and log out of yat or whatever.
 
-print("Type 'help' for a list of commands.")
 
 
-def logged_in_menu(account): # Currently a dead end. Can't get past error.
-    print("help       : print this message")
-    print("list yats  : list owned yats")
-    print("yat lookup : lookup the info of a yat")
-    print("char       : valid emoji characters")
-    print("set        : set crypto address")
-    print("delete     : delete hash data")
+def logged_in_menu(account):
+    print("Type 'help' for a list of commands.")
+
     while True:
         user_input = input(": ")
-        if user_input == 'help': # Should fix so only have to change one help file
+        if user_input == 'help':
             print("help       : print this message")
             print("list yats  : list owned yats")
             print("yat lookup : lookup the info of a yat")

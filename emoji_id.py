@@ -13,20 +13,52 @@ import pprint
 
 def store(base_url, account):
     headers = credentials.create_xapi_head(account)  # Make header that will be passed later
-    print("Enter yat to edit:")
-    yat = input(": ")  # Try 🤘🐺🤘
+
+# Get the yat or yats that we will be editing.
+    ok = False
+    while ok is False:
+        print("Enter yats to edit or help:")
+        yat = input(": ")
+        while yat == 'help':
+            print("Enter the emojis of a yat you own on this account to change the data stored in your yat.")
+            print("You can also enter multiple yats separated by a \',\'")
+            print("Enter yats to edit or help:")
+            yat = input(": ")
+        ok = True
+    yat = yat.replace(" ", "")
+    yat = yat.split(',')
+
+# Get the data the user wants to store
     print("Enter data to be stored:")
-    address = input(
-        ": ")  # try 48bPRVkgvHwjG2VUTkPLaGazynZ6RxETuNGsYZNBrtb7ZkAUqY1NE2iGqoLd8EFsvhbDGW8gNb96Jce8fg2aiY8A5mbd8zf
-    print("Enter tag (https://api-docs.y.at/docs/categories) of data:")
-    tag = input(": ")  # xmr wallet = 0x1001
+    address = input(": ")
+
+# Get the tag of the data from the user and helps them to determine the correct tag
+    ok = False
+    while ok is False:
+        print("Enter tag of data or 'help':")
+        tag = input(": ")
+        while tag == 'help':
+            print("Tags are how data type is determined on your yat page.")
+            print("For example: a tag of \"0x0004\" is a redirect and a tag of \"0x0005\" is the rainbow title.")
+            print("A reference with available tags can be found here: https://api-docs.y.at/docs/categories")
+            print("Enter tag of data or 'help':")
+            tag = input(": ")  # xmr wallet = 0x1001
+        ok = True
+
     dict_data = {'insert': [{'data': address, 'tag': tag}]}
 
-    responce = requests.patch(base_url + '/emoji_id/' + yat, json=dict_data, headers=headers)
-    print(responce)
-    print(responce.text)
+    for i in range(len(yat)):
+        response = requests.patch(base_url + '/emoji_id/' + yat, json=dict_data, headers=headers)
+        print(yat + "edit results:")
+        print(response)
+        print(response.text)
 
     return ()
+
+
+def multi_set(base_url, account):
+    headers = credentials.create_xapi_head(account)  # Make header that will be passed later
+    print("Enter the yats you want to edit separated by a comma")
 
 
 def emoji_characters(base_url, account):
@@ -40,8 +72,12 @@ def emoji_characters(base_url, account):
 def owned_list(base_url, account):
     headers = credentials.create_zapi_head(account)  # Make header that will be passed later
     responce = requests.get(base_url + '/emoji_id', headers=headers)
-    print(responce)
     obj = json.loads(responce.text)
+    if 'error' in responce:
+        print(responce)
+        print(responce.text)
+        return ()
+    print(responce)
     print("Owned yats:")
     pprint.pprint(obj)
     return ()
