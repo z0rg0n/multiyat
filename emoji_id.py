@@ -48,25 +48,22 @@ def store(base_url, account):
     dict_data = {'insert': [{'data': address, 'tag': tag}]}
 
     for i in range(len(yat)):
-        response = requests.patch(base_url + '/emoji_id/' + yat, json=dict_data, headers=headers)
-        print(yat + "edit results:")
+        current_yat = yat[i]
+        response = requests.patch(base_url + '/emoji_id/' + current_yat, json=dict_data, headers=headers)
+        print(current_yat + "edit results:")
         print(response)
         print(response.text)
 
     return ()
 
 
-def multi_set(base_url, account):
-    headers = credentials.create_xapi_head(account)  # Make header that will be passed later
-    print("Enter the yats you want to edit separated by a comma")
-
-
 def emoji_characters(base_url, account):
     headers = credentials.create_zapi_head(account)  # Make header that will be passed later
-    responce = requests.get(base_url + '/emoji', headers=headers)
-    obj = json.loads(responce.text)
-    print("Avaliable emojis are:")
-    print(responce.text)
+    response = requests.get(base_url + '/emoji', headers=headers)
+    obj = json.loads(response.text)
+    print("Available emojis are:")
+    print(response.text)
+    return ()
 
 
 def owned_list(base_url, account):
@@ -97,9 +94,9 @@ def lookup(base_url):
 def delete_hash(base_url, account):
     headers = credentials.create_xapi_head(account)  # Make header that will be passed later
     print("Enter a yat target has is in:")
-    yat = input(": ")  # Try 🤘🐺🤘
+    yat = input(": ")
     print("Enter hash to delete:")
-    target = input(": ")  # try cc99003dc1d247ee990267f5e7c0049971c698b1daefc31fbffa3c2f674c8a32
+    target = input(": ")
     dict_data = {
         'delete': [
             {
