@@ -17,7 +17,6 @@ def user_request (user_input):
         print("Available Commands:")
         print("help      : print this list")
         print("login     : login to a yat account:")
-        print("manage    : manage yat accounts")
         print("exit      : exit program")
         return()
     elif user_input == 'login':
