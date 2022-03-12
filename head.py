@@ -19,6 +19,7 @@ def user_request (user_input):
         print("Available Commands:")
         print("help      : print this list")
         print("login     : login to a yat account:")
+        print("yat lookup : lookup the info of a yat")
         print("exit      : exit program")
         return()
     elif user_input == 'login':
@@ -29,12 +30,15 @@ def user_request (user_input):
             logged_in_menu(account) # This menu will have tools avaliable when auththenticated by apiKey
         else:
             print("login failed")
+    elif user_input == 'yat lookup':
+        emoji_id.lookup(base_url)
     elif user_input == 'manage':
         print("Not built yet...")
         #accounts.manage(base_url)
         return ()
     elif user_input == 'exit':
         exit() # should also revoke all access and log out of yat or whatever.
+    return()
 
 
 
@@ -63,6 +67,7 @@ def logged_in_menu(account):
             emoji_id.delete_hash(base_url, account)
         elif user_input == 'calc rs':
             emoji_id.calc_rs(base_url)
+        return ()
 
 while True:
    print("Type 'help' for a list of commands.")
