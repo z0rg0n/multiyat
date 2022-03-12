@@ -39,8 +39,6 @@ def select_account(base_url):
     else:  # If an available account is selected it will just return a dict of that account info.
         for key in available_accounts:
             selected_account = int(selected_account)
-            print("Looking for selected account :")
-            print(selected_account)
             if available_accounts[key]['order'] == selected_account:
                 account = available_accounts[key]
         return (account)

@@ -67,7 +67,7 @@ def emoji_characters(base_url, account):
 
 
 def owned_list(base_url, account):
-    headers = credentials.create_xapi_head(account)  # Make header that will be passed later
+    headers = credentials.create_zapi_head(account)  # Make header that will be passed later
     responce = requests.get(base_url + '/emoji_id', headers=headers)
     obj = json.loads(responce.text)
     if 'error' in responce:
@@ -108,7 +108,7 @@ def delete_hash(base_url, account):
     yat = input(": ")
     print("Enter hash to delete:")
     target = input(": ")
-    dict_data = {'delete': [{'hash': target}]}
+    dict_data = {'delete': target}
 
     response = requests.post(base_url + '/emoji_id/' + yat, json=dict_data, headers=headers)
     print(response)
