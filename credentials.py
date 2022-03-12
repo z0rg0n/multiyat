@@ -108,9 +108,7 @@ def login(base_url, account):
         'password': password
     }
     json_credentials = json.dumps(credentials, skipkeys=True, separators=(',', ':')) # I don't know why but it doesn't work unless all the spaces are stripped out
-    print("json_credentials from def login in credentials:")
-    print(json_credentials)
-    print(type(json_credentials))
+
     available_accounts = requests.post(base_url + '/auth/token', data=json_credentials, headers=headers)
     available_accounts = json.loads(available_accounts.text)  # Make the response a string so Python cand read it
 
