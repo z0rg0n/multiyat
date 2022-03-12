@@ -8,7 +8,8 @@ Apart from saving the API key and the optional saving of the yat account email; 
 - List all owned yats
 - Lookup the public information associated to a yat
 - Assign a [yat record](https://api-docs.y.at/docs/categories) to multipule yats at once.
-- Delete a specific yat record based on the [hash](https://api-docs.y.at/docs/api-ref#parameters-18) of that record (see Edit EmojiId section).
+~~- Delete a specific yat record based on the [hash](https://api-docs.y.at/docs/api-ref#parameters-18) of that record (see Edit EmojiId section).~~ currently broken
+
 
 ### Features to Add
 - Continuous scanning of a list of owned and 'followed' yats and saving of any changes to those yats to a MongoDB database
