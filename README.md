@@ -5,10 +5,10 @@ Apart from saving the API key and the optional saving of the yat account email; 
 
 ## Features
 - List emojis in yat library for simple copy and pasting
-- List all owned yats
+- List all owned yats [implemented with workaround](https://github.com/z0rg0n/multiyat/issues/5)
 - Lookup the public information associated to a yat
 - Assign a [yat record](https://api-docs.y.at/docs/categories) to multipule yats at once.
-- ~~Delete a specific yat record based on the [hash](https://api-docs.y.at/docs/api-ref#parameters-18) of that record (see Edit EmojiId section).~~ currently broken
+- ~~Delete a specific yat record based on the [hash](https://api-docs.y.at/docs/api-ref#parameters-18) of that record (see Edit EmojiId section).~~ [currently broken](https://github.com/z0rg0n/multiyat/issues/5)
 
 
 ### Features to Add
