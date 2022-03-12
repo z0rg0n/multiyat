@@ -14,7 +14,7 @@ def user_request (user_input):
     print("Type 'help' for a list of commands.")
 
     if user_input == 'help':
-        print("Avaliable Commands:")
+        print("Available Commands:")
         print("help      : print this list")
         print("login     : login to a yat account:")
         print("manage    : manage yat accounts")
@@ -49,6 +49,7 @@ def logged_in_menu(account):
             print("char       : valid emoji characters")
             print("set        : set crypto address")
             print("delete     : delete hash data")
+            print("calc rs    : calculate a yat RS")
         elif user_input == 'list yats':
             emoji_id.owned_list(base_url, account)
         elif user_input == 'yat lookup':
@@ -59,7 +60,10 @@ def logged_in_menu(account):
             emoji_id.store(base_url, account)
         elif user_input == 'delete':
             emoji_id.delete_hash(base_url, account)
+        elif user_input == 'calc rs':
+            emoji_id.calc_rs(base_url)
 
 while True:
+   print("Type 'help' for a list of commands.")
    user_input = input(": ")
    user_request(user_input)
