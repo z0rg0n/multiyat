@@ -36,7 +36,7 @@ cd multiyat/
 pip install -r requirements.txt
 ```
 
-### Usage
+## Usage
 ```
 # Run the head
 python head.py
