@@ -38,6 +38,6 @@ pip install -r requirements.txt
 
 ## Usage
 ```
-# Run the head
+# Run the head from the folder in the cloned reposotory
 python head.py
 ```
