@@ -9,6 +9,8 @@ import emoji_id
 
 base_url = 'https://a.y.at'
 
+print("LET THERE BE YAT!")
+print("♾️💻⛓️💻♾️")
 
 def user_request (user_input):
     print("Type 'help' for a list of commands.")
