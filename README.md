@@ -3,7 +3,7 @@
 Apart from saving the API key and the optional saving of the yat account email; all features are simple interactions with the yat API.
 
 
-## Features
+### Features
 - List emojis in yat library for simple copy and pasting
 - List all owned yats
 - Lookup the public information associated to a yat
@@ -20,7 +20,7 @@ Apart from saving the API key and the optional saving of the yat account email; 
 
 ### Installation
 
-# Debian
+## Debian
 Prequisits:
 - git
 - python
@@ -36,7 +36,7 @@ cd multiyat/
 pip install -r requirements.txt
 ```
 
-### Usage
+## Usage
 ```
 # Run the head
 python head.py
