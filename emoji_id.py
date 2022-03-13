@@ -14,7 +14,7 @@ import pprint
 def store(base_url, account):
     headers = credentials.create_xapi_head(account)  # Make header that will be passed later
 
-# Get the yat or yats that we will be editing.
+    # Get the yat or yats that we will be editing.
     ok = False
     while ok is False:
         print("Enter yats to edit or help:")
@@ -28,11 +28,11 @@ def store(base_url, account):
     yat = yat.replace(" ", "")
     yat = yat.split(',')
 
-# Get the data the user wants to store
+    # Get the data the user wants to store
     print("Enter data to be stored:")
     address = input(": ")
 
-# Get the tag of the data from the user and helps them to determine the correct tag
+    # Get the tag of the data from the user and helps them to determine the correct tag
     ok = False
     while ok is False:
         print("Enter tag of data or 'help':")
@@ -108,9 +108,8 @@ def delete_hash(base_url, account):
     yat = input(": ")
     print("Enter hash to delete:")
     target = input(": ")
-    dict_data = {'delete': target}
-
-    response = requests.post(base_url + '/emoji_id/' + yat, json=dict_data, headers=headers)
+    dict_data = {'delete': [target]}
+    response = requests.patch(base_url + '/emoji_id/' + yat, json=dict_data, headers=headers)
     print(response)
     print(response.text)
 
