@@ -15,7 +15,6 @@ Apart from saving the API key and the optional saving of the yat account email; 
 - Continuous scanning of a list of owned and 'followed' yats and saving of any changes to those yats to a MongoDB database
 
 ### Quality of Life Improvements
-- Allow copying and pasting of returned owned yat list directly into assign yat record function
 - Allow grouping of owned yats based on yat properties and user assigned properties
 
 
