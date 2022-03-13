@@ -16,6 +16,7 @@ Apart from saving the API key and the optional saving of the yat account email; 
 
 ### Quality of Life Improvements
 - Allow grouping of owned yats based on yat properties and user assigned properties
+- Instead of prompting a user for a tag have a list of supported data and insert tag from that selection
 
 
 ## Installation
