@@ -45,7 +45,7 @@ Click the code button on the https://github.com/z0rg0n/multiyat page and downloa
 Extract the zip
 
 # Running the app
-Open up a command prompt and navigate to the folder you extracted the download to.
+Open up a command prompt and navigate to the folder you extracted the zip to.
 ```
 
 
