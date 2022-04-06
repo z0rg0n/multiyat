@@ -39,13 +39,18 @@ pip install -r requirements.txt
 ### Windows
 Prerequisite:
 - python
+- pip
+(https://www.liquidweb.com/kb/install-pip-windows/)
 ```
 # Download the app
 Click the code button on the https://github.com/z0rg0n/multiyat page and download the zip.
 Extract the zip
 
 # Running the app
-Open up a command prompt and navigate to the folder you extracted the zip to.
+Open up a command prompt and navigate into the folder created when you extracted the zip to.
+
+# Install the requirements by typing this into the console:
+pip install -r requirements.txt
 ```
 
 
