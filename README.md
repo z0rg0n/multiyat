@@ -57,7 +57,7 @@ python head.py
 # You should see the splash line '♾️💻⛓️💻♾️'
 ```
 
-# Associate Monero address to your yat
+### Associate Monero address to your yat
 ```
 # Login to your yat account
 Enter 'login'
